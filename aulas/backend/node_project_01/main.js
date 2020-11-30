@@ -1,7 +1,7 @@
-const novo_modulo = require("./novo_modulo")
+const http = require("http");
 
-console.log("Hello word");
-console.log(novo_modulo);
-console.log(novo_modulo.somar(2,3));
-console.log(novo_modulo.str);
-console.log(novo_modulo.obj);
+const app = require("./config/express")();
+
+http.createServer(app).listen(app.get('port'), function(){
+    console.log("Express Server escutando na porta "+app.get('port'));
+});
