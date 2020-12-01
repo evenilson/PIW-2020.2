@@ -5,7 +5,7 @@ module.exports = function(){
     let app = express();
 
     //Defindo varial de aplicação
-
     app.set("port", 8393);
-    return app;
+    app.use(express.static("./public"));
+    return app;             
 }
