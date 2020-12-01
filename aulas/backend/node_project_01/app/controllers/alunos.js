@@ -1,10 +1,17 @@
 let alunos = [
     {id: 5, nome:"Victor", sobrenome:"Farias"},
+    {id: 6, nome:"Victor", sobrenome:"Lima"},
     {id: 10, nome:"Luis", sobrenome:"Andrade"},
 ];
 
 module.exports.listarAlunos = function(req, res){
-    res.json(alunos);
+    let alunos_retorno = alunos;
+
+    if(req.query.nome){
+        let nome = req.query.nome;
+        alunos_retorno = alunos_retorno.filter(function(aluno){return aluno.nome==nome});
+    }
+    res.json(alunos_retorno);
 }
 
 module.exports.buscarAlunoPorId = function(req, res){
