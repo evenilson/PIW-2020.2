@@ -1,5 +1,6 @@
 // Importando o módulo express (Padão CommomJS)
 const express = require('express');
+const bodyParser = require("body-parser");
 
 const routerAlunos = require("../app/routes/alunos")
 
@@ -8,6 +9,9 @@ module.exports = function(){
 
     //Defindo varial de aplicação
     app.set("port", 8393);
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended:false}));
+
     app.use(express.static("./public"));
     routerAlunos(app);
 

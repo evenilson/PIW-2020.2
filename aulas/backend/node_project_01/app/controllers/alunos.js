@@ -25,3 +25,17 @@ module.exports.buscarAlunoPorId = function(req, res){
         res.status(404).json({mensagem:"Aluno não encontrado"});
     }
 }
+
+module.exports.inserirAluno = function(req, res){
+    let aluno = req.body;
+    alunos.push(aluno);
+    res.status(201).json(aluno);
+}
+
+module.exports.removerAluno = function(req, res){
+    let id = req.params.id;
+    
+    alunos = alunos.filter(function(aluno){return aluno.id!=id;});
+    
+    res.json({mensagem:"Aluno foi removido"});
+}
