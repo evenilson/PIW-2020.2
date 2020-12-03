@@ -1,6 +1,8 @@
 const express = require('express');// Exportando módulo (Padrão CommonJS)
-const usuariosRouter = require('../app/routes/usuariosRouter.js');
 const bodyParser = require("body-parser");
+
+const usuariosRouter = require('../app/routes/usuariosRouter.js');
+const postsRouter = require("../app/routes/postsRouter.js")
 
 module.exports = function() {
     let app = express(); //Definindo variável de aplicação
@@ -12,5 +14,7 @@ module.exports = function() {
     app.use(express.static('./public'));
 
     usuariosRouter(app);
+    postsRouter(app);
+    
     return app;
 };
