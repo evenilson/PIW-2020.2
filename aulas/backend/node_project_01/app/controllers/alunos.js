@@ -1,5 +1,7 @@
 const Aluno = require("../models/aluno")
 
+const View = require("../views/alunos");
+
 let alunos = [
     {id: 5, nome:"Victor", sobrenome:"Farias"},
     {id: 6, nome:"Victor", sobrenome:"Lima"},
@@ -9,7 +11,7 @@ let alunos = [
 module.exports.listarAlunos = function(req, res){
     let promisse = Aluno.find().exec();
     promisse.then(function(alunos){
-        res.status(200).json(alunos);
+        res.status(200).json(View.renderMany(alunos));
     }).catch(function(error){
         res.status(500).json({mensagem: "Deu ruim!"})
     })
@@ -35,7 +37,7 @@ module.exports.inserirAluno = function(req, res){
     //essa função é chamada quando a requisição ao banco foi concluída
     //ela recebe o aluno inserido como parâmetro
     promisse.then(function(aluno){
-        res.status(201).json(aluno);
+        res.status(201).json(View.render(aluno));
     }).catch(function(error){
         res.status(400).json({mensagem:"Sua requisição não funfou"})
     })
