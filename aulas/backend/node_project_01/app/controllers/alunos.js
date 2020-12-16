@@ -2,51 +2,48 @@ const Aluno = require("../models/aluno")
 
 const View = require("../views/alunos");
 
-let alunos = [
-    {id: 5, nome:"Victor", sobrenome:"Farias"},
-    {id: 6, nome:"Victor", sobrenome:"Lima"},
-    {id: 10, nome:"Luis", sobrenome:"Andrade"},
-];
 
 module.exports.listarAlunos = function(req, res){
-    let promisse = Aluno.find().exec();
-    promisse.then(function(alunos){
+    let promise = Aluno.find().exec();
+    promise.then(function(alunos){
         res.status(200).json(View.renderMany(alunos));
     }).catch(function(error){
-        res.status(500).json({mensagem: "Deu ruim!"})
+        res.status(500).json({mensagem: "Deu ruim!", error:error})
     })
 }
 
 module.exports.buscarAlunoPorId = function(req, res){
     let id = req.params.id;
 
-    let aluno = alunos.find(function(aluno){return aluno.id==id;});
-    
-    if(aluno){
-        res.json(aluno);
-    }else{
-        res.status(404).json({mensagem:"Aluno não encontrado"});
-    }
+    let promise = Aluno.findById(id).exec();
+    promise.then(function(aluno){
+        res.status(200).json(View.render(aluno));
+    }).catch(function(error){
+        res.status(400).json({mensagem:"Deu ruim!", error:error});
+    })
 }
 
 module.exports.inserirAluno = function(req, res){
     let aluno = req.body;
-    let promisse = Aluno.create(aluno);
-
+    let promise = Aluno.create(aluno);
 
     //essa função é chamada quando a requisição ao banco foi concluída
     //ela recebe o aluno inserido como parâmetro
-    promisse.then(function(aluno){
+    promise.then(function(aluno){
         res.status(201).json(View.render(aluno));
     }).catch(function(error){
-        res.status(400).json({mensagem:"Sua requisição não funfou"})
+        res.status(400).json({mensagem:"Deu ruim!", error:error})
     })
 }
 
 module.exports.removerAluno = function(req, res){
     let id = req.params.id;
     
-    alunos = alunos.filter(function(aluno){return aluno.id!=id;});
-    
-    res.json({mensagem:"Aluno foi removido"});
+    let promise = Aluno.findByIdAndRemove(id);
+
+    promise.then(function(aluno){
+        res.status(200).json(View.render(aluno));
+    }).catch(function(error){
+        res.status(500).json({mensagem:"Deu ruim!", error:error})
+    })
 }
