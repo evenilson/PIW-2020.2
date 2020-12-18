@@ -2,7 +2,8 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 
-const routerAlunos = require("../app/routes/alunos")
+const routerAlunos = require("../app/routes/alunos");
+const routerDisciplinas = require("../app/routes/disciplinas");
 
 module.exports = function(){
     let app = express();
@@ -14,6 +15,7 @@ module.exports = function(){
 
     app.use(express.static("./public"));
     routerAlunos(app);
+    routerDisciplinas(app);
 
     return app;             
 }
