@@ -12,7 +12,7 @@ module.exports.inserirMatricula = function(req, res){
 }
 
 module.exports.listarMatriculas = function(req, res){
-    let promise = Matricula.find().exec();
+    let promise = Matricula.find().populate("disciplina").populate("aluno").exec();
     promise.then(function(matriculas){
         res.status(200).json(viewMatricula.renderMany(matriculas));
     }).catch(function(error){
