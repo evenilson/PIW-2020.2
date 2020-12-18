@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 
 const routerAlunos = require("../app/routes/alunos");
 const routerDisciplinas = require("../app/routes/disciplinas");
+const routerMatriculas = require("../app/routes/matriculas");
 
 module.exports = function(){
     let app = express();
@@ -16,6 +17,7 @@ module.exports = function(){
     app.use(express.static("./public"));
     routerAlunos(app);
     routerDisciplinas(app);
+    routerMatriculas(app);
 
     return app;             
 }
