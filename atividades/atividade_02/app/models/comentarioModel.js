@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 
 module.exports = function(){
     let schema = mongoose.Schema({
-        id:{
-            type:"String",
-            require: true,
-        },
         texto:{
             type: "String",
             require: true,
