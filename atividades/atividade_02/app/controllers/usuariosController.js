@@ -1,38 +1,51 @@
-let usuarios = [ 
-    {id: 1, nome: "Victor", email: "victor.aefarias@gmail.com", senha: "123 "},
-    {id: 5, nome: "João", email: "joao@gmail.com", senha: "456"},
-]
+const usuarioModel = require("../models/usuarioModel");
+const usuarioView = require("../views/usuarioView");
+
 
 module.exports.listarUsuarios = function(req, res){
+    let promise = usuarioModel.find().exec();
 
-    res.json(usuarios);
+    promise.then(function(usuarios){
+        res.status(200).json(usuarioView.renderMany(usuarios));
+    }).catch(function(error){
+        res.status(500).json({mensagem: "Deu ruim!", erro: error});
+    })
 }
 
 module.exports.BuscarUsuarioPorId = function(req, res){
     let id = req.params.id;
+    
+    let promisse = usuarioModel.findById(id).exec();
 
-    let usuario = usuarios.find(function(usuario){return usuario.id == id});
-
-    if(usuario){
-        res.json(usuario)
-    }
-    else{
-        res.status(404).json({mensagem: "Usuário não encontrado"});
-    }
+    promisse.then(function(usuario){
+        res.status(200).json(usuarioView.render(usuario));
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Deu ruim!", erro: error})
+    })
 }
 
 module.exports.inserirUsuario = function(req, res){
     let usuario = req.body;
 
-    usuarios.push(usuario);
+    let promise = usuarioModel.create(usuario);
 
-    res.status(201).json(usuario);
+    //essa função é chamada quando a requisição ao banco foi concluída
+    //ela recebe o aluno inserido como parâmetro
+    promise.then(function(usuario){
+        res.status(201).json(usuarioView.render(usuario));
+    }).catch(function(error){
+        res.status(400).json({mensagem:"Deu ruim!", error:error})
+    })
 }
 
 module.exports.removerUsuario = function(req, res){
     let id = req.params.id;
+    
+    let promise = usuarioModel.findByIdAndRemove(id);
 
-    usuarios = usuarios.filter(function(usuario){ return usuario.id!=id});
-
-    res.json({mensagem:"Usuário foi removido"});
+    promise.then(function(usuario){
+        res.status(200).json(usuarioView.render(usuario));
+    }).catch(function(error){
+        res.status(500).json({mensagem:"Deu ruim!", error:error})
+    })
 }

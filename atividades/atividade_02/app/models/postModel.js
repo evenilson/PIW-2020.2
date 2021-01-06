@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Usuario = require("./usuarioModel");
 
@@ -6,11 +6,11 @@ module.exports = function(){
     let schema = mongoose.Schema({
         texto:{
             type: "String",
-            require: true,
+            required: true,
         },
         likes: {
             type: "Number",
-            require: true,
+            required: true,
         },
         id_usuario: {
             type: mongoose.Schema.ObjectId,

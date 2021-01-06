@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 module.exports = function(){
     let schema = mongoose.Schema({
         texto:{
             type: "String",
-            require: true,
+            required: true,
         },
         id_post: {
             type: mongoose.Schema.ObjectId,
