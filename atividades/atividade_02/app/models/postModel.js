@@ -8,6 +8,10 @@ module.exports = function(){
             type: "String",
             require: true,
         },
+        likes: {
+            type: "Number",
+            require: true,
+        },
         id_usuario: {
             type: mongoose.Schema.ObjectId,
             ref: "Usuario",
