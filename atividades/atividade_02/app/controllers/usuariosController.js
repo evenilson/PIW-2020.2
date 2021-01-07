@@ -1,6 +1,9 @@
 const usuarioModel = require("../models/usuarioModel");
 const usuarioView = require("../views/usuarioView");
 
+const postModel = require("../models/postModel");
+const postView = require("../views/postView");
+
 
 module.exports.listarUsuarios = function(req, res){
     let promise = usuarioModel.find().exec();
@@ -47,5 +50,16 @@ module.exports.removerUsuario = function(req, res){
         res.status(200).json(usuarioView.render(usuario));
     }).catch(function(error){
         res.status(500).json({mensagem:"Deu ruim!", error:error})
+    })
+}
+
+module.exports.obterPosts = function(req, res){
+    let id = req.params.id;
+
+    let promise = postModel.find({id_usuario: id}).exec();
+    promise.then(function(posts){
+        res.status(200).json(postView.renderMany(posts))
+    }).catch(function(error){
+        res.status(500).json({mensagem: "Deu ruim!", error: error})
     })
 }
