@@ -1,6 +1,5 @@
 const viewUsuario = require("../views/usuarioView");
 
-
 function render(post){
     return {
         id: post._id,

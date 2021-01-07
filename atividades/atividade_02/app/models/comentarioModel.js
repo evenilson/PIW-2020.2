@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+const Post = require("./postModel")
+const Usuario = require("./usuarioModel");
+
 module.exports = function(){
     let schema = mongoose.Schema({
         texto:{

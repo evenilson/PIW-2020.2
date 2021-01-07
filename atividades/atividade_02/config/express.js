@@ -2,7 +2,8 @@ const express = require('express');// Exportando módulo (Padrão CommonJS)
 const bodyParser = require("body-parser");
 
 const usuariosRouter = require('../app/routes/usuariosRouter.js');
-const postsRouter = require("../app/routes/postsRouter.js")
+const postsRouter = require("../app/routes/postsRouter.js");
+const comentariosRouter = require("../app/routes/comentariosRouter");
 
 module.exports = function() {
     let app = express(); //Definindo variável de aplicação
@@ -15,6 +16,7 @@ module.exports = function() {
 
     usuariosRouter(app);
     postsRouter(app);
+    comentariosRouter(app)
     
     return app;
 };

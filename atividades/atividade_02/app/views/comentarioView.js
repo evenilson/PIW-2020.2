@@ -6,15 +6,14 @@ function render(comentario){
         id: comentario._id,
         texto: comentario.texto,
         id_usuario: viewUsuario.render(comentario.id_usuario),
-        id_post: viewPost.render(comentario.id_post),
-
+        id_post: comentario.id_post
     }
 }
 
 module.exports.render = render;
 
-function renderMany(posts){
-    return posts.map(render);
+function renderMany(comentarios){
+    return comentarios.map(render);
 }
 
 module.exports.renderMany = renderMany;
