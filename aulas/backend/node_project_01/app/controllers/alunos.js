@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt")
+
 const Aluno = require("../models/aluno")
 
 const View = require("../views/alunos");
@@ -6,6 +8,7 @@ const Matricula = require("../models/matricula");
 const viewMatricula = require("../views/matriculas");
 
 const viewDisciplina = require("../views/disciplina");
+
 
 
 module.exports.listarAlunos = function(req, res){
@@ -29,7 +32,14 @@ module.exports.buscarAlunoPorId = function(req, res){
 }
 
 module.exports.inserirAluno = function(req, res){
-    let aluno = req.body;
+    let aluno = {
+        nome: req.body.nome,
+        matricula: req.body.matricula,
+        senha: bcrypt.hashSync(req.body.senha, 10),
+    }
+
+
+
     let promise = Aluno.create(aluno);
 
     //essa função é chamada quando a requisição ao banco foi concluída
