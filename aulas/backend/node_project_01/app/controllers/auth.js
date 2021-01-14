@@ -17,3 +17,16 @@ module.exports.logar = function(req, res){
             res.status(401).send("credenciais erradas");
         })
 }
+
+module.exports.checar = function(req, res, next){
+    let token = req.headers.token;
+
+    jwt.verify(token, "senha_secreta", function(err, decoded){
+        if(err){
+            res.status(401).send("Token invalido");
+        }else{
+            next();
+        }
+        
+    })
+}
