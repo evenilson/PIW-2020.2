@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt")
+
 const usuarioModel = require("../models/usuarioModel");
 const usuarioView = require("../views/usuarioView");
 
@@ -28,7 +30,11 @@ module.exports.BuscarUsuarioPorId = function(req, res){
 }
 
 module.exports.inserirUsuario = function(req, res){
-    let usuario = req.body;
+    let usuario = {
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: bcrypt.hashSync(req.body.senha, 10),
+    }
 
     let promise = usuarioModel.create(usuario);
 
