@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken")
+
 const postModel = require("../models/postModel");
 const postView = require("../views/postView");
 
@@ -27,7 +29,14 @@ module.exports.BuscarPostPorId = function(req, res){
 }
 
 module.exports.inserirPost = function(req, res){
-    let post = req.body;
+    let payload = jwt.decode(req.headers.token);
+    let id_usuario_logado = payload.id;
+
+    let post = {
+        texto: req.body.texto,
+        likes: req.body.likes,
+        id_usuario: id_usuario_logado
+    }
 
     let promise = postModel.create(post);
 
@@ -42,11 +51,19 @@ module.exports.inserirPost = function(req, res){
 
 module.exports.removerPost= function(req, res){
     let id = req.params.id;
+
+
+    let payload = jwt.decode(req.headers.token);
+    let id_usuario_logado = payload.id;
     
-    let promise = postModel.findByIdAndRemove(id);
+    let promise = postModel.findOneAndDelete({_id: id, id_usuario: id_usuario_logado});
 
     promise.then(function(post){
-        res.status(200).json(postView.render(post));
+        if(post === null){
+            res.status(404).json({mensagem: "Deu ruim! acesso inválido :("})
+        }else{
+            res.status(200).json(postView.render(post));
+        }
     }).catch(function(error){
         res.status(500).json({mensagem:"Deu ruim!", error:error})
     })
