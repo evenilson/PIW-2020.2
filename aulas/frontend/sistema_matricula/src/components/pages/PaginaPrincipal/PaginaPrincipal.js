@@ -1,4 +1,4 @@
-import { Navegador } from "../../commom/navegador/navegador";
+import { Navegador } from "../../commom/navegador/Navegador";
 
 function Conteudo() {
     let nome = "João";
@@ -10,12 +10,21 @@ function Conteudo() {
     )
 }
 
+function Cabecalho({paginaAtual}) {
+    return(
+        <header>
+            <h1>Matricula UFC QXD</h1>
+            <span>Você esta na {paginaAtual}</span>
+        </header>
+    )
+}
+
 export function PaginaPrincipal() {
     return (
         <div>
+            <Cabecalho paginaAtual="página de matricula"></Cabecalho>
             <Navegador></Navegador>
             <Conteudo></Conteudo>
-            
         </div>
     )
 }
