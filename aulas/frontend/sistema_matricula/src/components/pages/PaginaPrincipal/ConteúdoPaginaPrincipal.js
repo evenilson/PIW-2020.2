@@ -1,3 +1,12 @@
+function Card({nome, codigo}) {
+    return (
+        <div className="card">
+            <h3 className="titulo-card">{nome}</h3>
+            <span className="codigo-card">{codigo}</span>
+        </div>
+    )
+}
+
 export function Conteudo() {
     let disciplinas = [
         {
@@ -9,20 +18,23 @@ export function Conteudo() {
             codigo: "QXD562"
         },
         {
-            nome: "SOC",
+            nome: "IHC",
             codigo: "QXD784"
+        },
+        {
+            nome: "SOC",
+            codigo: "QXD754"
         }
     ];
 
-    const lis = disciplinas.map((disciplina) =>
-        <li key={disciplina.codigo}>      
-            {disciplina.nome} - {disciplina.codigo}
-        </li>
+    const cards = disciplinas.map((disciplina) =>
+        <Card nome={disciplina.nome} codigo={disciplina.codigo}></Card>
     );
 
     return (
-        <div >
-            {lis}
+        <div className="conteudo-galeria">
+            {cards}
         </div>
+        
     )
 }

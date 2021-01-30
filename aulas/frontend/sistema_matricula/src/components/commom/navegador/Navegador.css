@@ -1,0 +1,19 @@
+.navegador {
+    background-color: rgba(0, 0, 0, .8);
+
+    display: flex;
+}
+
+.navegador .link-navegador {
+    display: block;
+
+    padding: 8px;
+
+    color: #fff;
+
+    text-decoration: none;
+}
+
+.navegador .link-navegador:hover {
+    background-color: rgba(0, 0, 0, .5);
+}
