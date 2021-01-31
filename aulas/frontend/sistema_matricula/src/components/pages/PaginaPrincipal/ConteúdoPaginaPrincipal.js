@@ -1,9 +1,13 @@
-function Card({nome, codigo, disponivel}) {
-    let nomeClasse = "card";
+import classNames from 'classnames'
 
-    if(disponivel === false) {
-        nomeClasse += " fundo-vermelho";
-    }
+function Card({nome, codigo, disponivel}) {
+    let nomeClasse = classNames("card", {"fundo-vermelho":!disponivel})
+    
+    // let nomeClasse = "card";
+
+    // if(disponivel === false) {
+    //     nomeClasse += " fundo-vermelho";
+    // }
 
     return (
         <div className={nomeClasse}>
@@ -18,7 +22,7 @@ export function Conteudo() {
         {
             nome: "LMS",
             codigo: "QXD256",
-            disponivel: true
+            disponivel: false
         },
         {
             nome: "PIW",
