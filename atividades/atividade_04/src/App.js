@@ -1,5 +1,5 @@
 import './App.css';
-import { Feed } from './components/commom/Navigator/Feed/Feed';
+import { Feed } from './components/Feed/Feed';
 
 import { Navigator } from './components/commom/Navigator/Navigator'
 
