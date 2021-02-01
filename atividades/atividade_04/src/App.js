@@ -1,9 +1,11 @@
 import './App.css';
 
+import { Navigator } from './components/commom/Navigator/Navigator'
+
 function App() {
   return (
     <div className="App">
-      atividade 04
+      <Navigator></Navigator>
     </div>
   );
 }

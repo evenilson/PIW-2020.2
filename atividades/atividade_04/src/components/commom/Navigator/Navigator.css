@@ -1,0 +1,48 @@
+.navigator {
+    max-width: 700px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 19px;
+}
+
+.navigator a{
+    color: rgb(24, 27, 27);
+}
+
+.navigator .logo {
+    font-size: 1.4rem;
+
+    color: rgb(30, 124, 201);
+
+    text-transform: capitalize;
+}
+
+.navigator .logo span {
+    text-transform: uppercase;
+}
+
+.navigator .buttoms {
+    display: flex;
+
+    height: 100%;
+}
+
+.navigator .buttoms .buttom {
+    padding: 10px;
+
+    text-transform: uppercase;
+
+    font-size: small;
+}
+
+.navigator .buttoms .buttom:hover {
+    border-bottom: 2px solid rgb(30, 124, 201);
+}
+
+.navigator .buttoms li:nth-child(1){
+    border-bottom: 3px solid rgb(30, 124, 201);
+}
