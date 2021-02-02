@@ -18,7 +18,7 @@ export function Navigator (){
                 <li className="user-infos">
                     <strong className="user-name">Tafarel</strong>
                     <div className="user-img">
-                        <img src="https://i.pinimg.com/originals/8b/d3/1d/8bd31d79258cb5e51cd8884986ced870.jpg" alt="Foto do usuario logado"></img>
+                        <img src="https://i.pinimg.com/originals/8b/d3/1d/8bd31d79258cb5e51cd8884986ced870.jpg" alt="Foto do usuario logado"/>
                     </div>
                 </li>
             </ul>
