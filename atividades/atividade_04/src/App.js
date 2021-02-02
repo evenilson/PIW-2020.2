@@ -1,14 +1,12 @@
 import './App.css';
-import { Feed } from './components/Feed/Feed';
+import { HomePage } from './components/Pages/HomePage/HomePage';
 
-import { Navigator } from './components/commom/Navigator/Navigator'
 
 
 function App() {
   return (
     <div className="App">
-      <Navigator></Navigator>
-      <Feed></Feed>
+      <HomePage></HomePage>
     </div>
   );
 }
