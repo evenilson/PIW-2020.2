@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 19px;
+    padding-left: 10px;
 }
 
 .navigator a{
@@ -25,24 +25,64 @@
     text-transform: uppercase;
 }
 
-.navigator .buttoms {
+.navigator .nav-items {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     height: 100%;
 }
 
-.navigator .buttoms .buttom {
+
+.navigator .nav-items .button {
     padding: 10px;
+
+}
+
+.navigator .nav-items .button a { 
+    padding: 10px;
+
+    border-radius: 5px;
 
     text-transform: uppercase;
 
     font-size: small;
 }
 
-.navigator .buttoms .buttom:hover {
-    border-bottom: 2px solid rgb(30, 124, 201);
+.navigator .nav-items .button a:hover {
+    background-color: rgba(30, 124, 201, .1);
 }
 
-.navigator .buttoms li:nth-child(1){
+.navigator .nav-items li:nth-child(1){
     border-bottom: 3px solid rgb(30, 124, 201);
+}
+
+.navigator .nav-items .user-infos {
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+}
+
+.navigator .nav-items .user-name {
+    font-weight: 600;
+}
+
+.navigator .nav-items .user-img {
+    width: 50px;
+    height: 50px;
+    margin-left: 8px;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    border: 2px solid rgb(30, 124, 201);
+    border-radius: 50%;
+}
+
+.navigator .nav-items .user-img img {
+    width: 100%;
 }
