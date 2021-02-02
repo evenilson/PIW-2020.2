@@ -65,7 +65,7 @@
 
 /* estilo para o link da primeria li*/
 .navigator .nav-items li:nth-child(1) a {
-    font-size: .9rem;
+    color: rgb(30, 124, 201);
 }
 
 /* estilo para as informações do usuario*/
