@@ -51,6 +51,8 @@
     font-size: .8rem;
 
     color: #e3e4ec;
+
+    transition: .4s ease;
 }
 
 /* estilo para hover dos links dos botões*/
