@@ -1,3 +1,4 @@
+/* estilo geral do navegador*/
 .navigator {
     max-width: 700px;
     margin: auto;
@@ -9,10 +10,7 @@
     padding-left: 10px;
 }
 
-.navigator a{
-    color: rgb(24, 27, 27);
-}
-
+/* estilo do logo*/
 .navigator .logo {
     font-size: 1.4rem;
 
@@ -21,10 +19,13 @@
     text-transform: capitalize;
 }
 
+/* estilo do span mo logo*/
 .navigator .logo span {
     text-transform: uppercase;
 }
 
+
+/* estilo do itens do navegador*/
 .navigator .nav-items {
     display: flex;
     align-items: center;
@@ -33,12 +34,13 @@
     height: 100%;
 }
 
-
+/* estilos do botões*/
 .navigator .nav-items .button {
-    padding: 10px;
+    padding: 12px;
 
 }
 
+/* estilos dos links dentro dos botões*/
 .navigator .nav-items .button a { 
     padding: 10px;
 
@@ -46,17 +48,27 @@
 
     text-transform: uppercase;
 
-    font-size: small;
+    font-size: .8rem;
+
+    color: #e3e4ec;
 }
 
+/* estilo para hover dos links dos botões*/
 .navigator .nav-items .button a:hover {
     background-color: rgba(30, 124, 201, .1);
 }
 
+/* estilo para a prima li*/
 .navigator .nav-items li:nth-child(1){
     border-bottom: 3px solid rgb(30, 124, 201);
 }
 
+/* estilo para o link da primeria li*/
+.navigator .nav-items li:nth-child(1) a {
+    font-size: .9rem;
+}
+
+/* estilo para as informações do usuario*/
 .navigator .nav-items .user-infos {
     display: flex;
     align-items: center;
@@ -64,11 +76,13 @@
     padding: 10px;
 }
 
-.navigator .nav-items .user-name {
+/* estilo para o nome do usuario*/
+.navigator .nav-items .user-infos .user-name {
     font-weight: 600;
 }
 
-.navigator .nav-items .user-img {
+/* estilo para imagem o container da imagem do usuario*/
+.navigator .nav-items .user-infos .user-img {
     width: 50px;
     height: 50px;
     margin-left: 8px;
@@ -83,6 +97,7 @@
     border-radius: 50%;
 }
 
+/* estilo para a imagem do usuario*/
 .navigator .nav-items .user-img img {
     width: 100%;
 }
