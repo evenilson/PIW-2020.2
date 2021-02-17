@@ -7,6 +7,7 @@ import history from './history'
 import { PaginaPrincipal } from './components/pages/PaginaPrincipal/PaginaPrincipal'
 import { PaginaListarMatriculas } from './components/pages/PaginaListarMatriculas/PaginaListarMatriculas'
 import { PaginaDetalheMatricula } from './components/pages/PaginaDetalheMatricula/PaginaDetalheMatricula';
+import { PaginaDetalheDisciplina } from './components/pages/PaginaDetalheDisciplina/PaginaDetalheDisciplina';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/">
         <PaginaPrincipal></PaginaPrincipal>
       </Route>
+      <Route path="/disciplinas/:id" component={PaginaDetalheDisciplina}></Route>
       <Route exact path="/matriculas">
         <PaginaListarMatriculas></PaginaListarMatriculas>
       </Route>
