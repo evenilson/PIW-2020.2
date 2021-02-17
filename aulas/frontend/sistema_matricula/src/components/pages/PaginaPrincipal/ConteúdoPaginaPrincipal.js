@@ -1,5 +1,7 @@
 import classNames from 'classnames'
 
+import history from "../../../history";
+
 function Card({nome, codigo, disponivel}) {
     let nomeClasse = classNames("card", {"fundo-vermelho":!disponivel})
     
@@ -11,6 +13,7 @@ function Card({nome, codigo, disponivel}) {
 
     function foiClicado(){
         console.log("Foi clicado!");
+        history.push("/matriculas");
     }
 
     return (

@@ -1,6 +1,8 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 
 import './App.css';
+
+import history from './history'
 
 import { PaginaPrincipal } from './components/pages/PaginaPrincipal/PaginaPrincipal'
 import { PaginaListarMatriculas } from './components/pages/PaginaListarMatriculas/PaginaListarMatriculas'
@@ -8,7 +10,7 @@ import { PaginaDetalheMatricula } from './components/pages/PaginaDetalheMatricul
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}> 
       <Route exact path="/">
         <PaginaPrincipal></PaginaPrincipal>
       </Route>
@@ -16,7 +18,7 @@ function App() {
         <PaginaListarMatriculas></PaginaListarMatriculas>
       </Route>
       <Route path="/matriculas/:id" component={PaginaDetalheMatricula}></Route>
-    </BrowserRouter>
+    </Router>
     
   )
 }
