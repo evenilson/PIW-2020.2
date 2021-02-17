@@ -4,6 +4,7 @@ import './App.css';
 
 import { PaginaPrincipal } from './components/pages/PaginaPrincipal/PaginaPrincipal'
 import { PaginaListarMatriculas } from './components/pages/PaginaListarMatriculas/PaginaListarMatriculas'
+import { PaginaDetalheMatricula } from './components/pages/PaginaDetalheMatricula/PaginaDetalheMatricula';
 
 function App() {
   return (
@@ -11,9 +12,10 @@ function App() {
       <Route exact path="/">
         <PaginaPrincipal></PaginaPrincipal>
       </Route>
-      <Route path="/matriculas">
+      <Route exact path="/matriculas">
         <PaginaListarMatriculas></PaginaListarMatriculas>
       </Route>
+      <Route path="/matriculas/:id" component={PaginaDetalheMatricula}></Route>
     </BrowserRouter>
     
   )
