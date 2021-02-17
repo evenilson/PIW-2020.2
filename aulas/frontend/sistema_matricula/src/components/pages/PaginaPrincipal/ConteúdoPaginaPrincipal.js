@@ -9,8 +9,12 @@ function Card({nome, codigo, disponivel}) {
     //     nomeClasse += " fundo-vermelho";
     // }
 
+    function foiClicado(){
+        console.log("Foi clicado!");
+    }
+
     return (
-        <div className={nomeClasse}>
+        <div className={nomeClasse} onClick={foiClicado}>
             <h3 className="titulo-card">{nome}</h3>
             <span className="codigo-card">{codigo}</span>
         </div>
