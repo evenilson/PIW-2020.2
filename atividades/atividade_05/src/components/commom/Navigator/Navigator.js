@@ -1,9 +1,11 @@
+import { NavLink } from 'react-router-dom';
+
 import './Navigator.css'
 
 export function Navigator (){
     const ButtonNav = (props) => (
         <li className="button">
-            <a href="!#" className={props.classButton}>{props.nameButton}</a>
+            <NavLink exact to={props.to} className="nav-bt">{props.nameButton}</NavLink>
         </li>
 
        
@@ -11,10 +13,10 @@ export function Navigator (){
 
     return (
         <nav className="navigator">
-            <a href="!#" className="logo">Social<span>dev</span></a>
+            <NavLink exact to="/" className="logo">Social<span>dev</span></NavLink>
             <ul className="nav-items">
-                <ButtonNav nameButton="linha do tempo" classButton="feed-bt"></ButtonNav>
-                <ButtonNav nameButton="postar" classButton="post-bt"></ButtonNav>
+                <ButtonNav nameButton="linha do tempo" to="/"></ButtonNav>
+                <ButtonNav nameButton="postar" to="/post"></ButtonNav>
                 <li className="user-infos">
                     <strong className="user-name">Tafarel</strong>
                     <div className="user-img">

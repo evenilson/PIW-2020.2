@@ -44,7 +44,7 @@
 .navigator .nav-items .button a { 
     padding: 10px;
 
-    border-radius: 5px;
+    border-radius: 7px;
 
     text-transform: uppercase;
 
@@ -55,19 +55,22 @@
     transition: .4s ease;
 }
 
-/* estilo para hover dos links dos botões*/
-.navigator .nav-items .button a:hover {
+/* estilo para hover dos botões*/
+.navigator .nav-items .button .nav-bt:hover {
     background-color: rgba(30, 124, 201, .1);
 }
 
-/* estilo para a prima li*/
-.navigator .nav-items li:nth-child(1){
+/* estilo para quando o botão estiver ativo*/
+.navigator .nav-items .button .nav-bt.active {
     border-bottom: 3px solid rgb(30, 124, 201);
+    border-bottom-width: medium;
+    color: rgb(30, 124, 201);
+    
 }
 
-/* estilo para o link da primeria li*/
-.navigator .nav-items li:nth-child(1) a {
-    color: rgb(30, 124, 201);
+/* estilo hover para quando o botão estive ativo*/
+.navigator .nav-items .button .nav-bt.active:hover {
+    background-color: transparent;
 }
 
 /* estilo para as informações do usuario*/
