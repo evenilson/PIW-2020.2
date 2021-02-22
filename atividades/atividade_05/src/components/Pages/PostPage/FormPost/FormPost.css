@@ -7,6 +7,8 @@
 
     width: 700px;
     margin: 20px auto;
+
+    animation: increase .15s ease-out;
 }
 
 /* esttilo do campo de texto do form*/
@@ -71,4 +73,15 @@
 
     width: 31%;
     height: 50px;
+}
+
+/* keyframe pra pulsar o form*/
+@keyframes increase {
+    from {
+        transform: scale(.1);
+    }
+    to {
+        transform: scale(1);
+
+    }
 }
