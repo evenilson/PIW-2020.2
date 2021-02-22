@@ -1,3 +1,4 @@
+/* Estilo do form*/
 .form {
     display: flex;
     flex-direction: column;
@@ -8,7 +9,7 @@
     margin: 20px auto;
 }
 
-
+/* esttilo do campo de texto do form*/
 .form .input-text {
     display: flex;
     align-items: flex-start;
@@ -33,12 +34,14 @@
 
 }
 
+/* estilo do placeholder do campo de texto do form*/
 .form .input-text::placeholder {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.6);
 }
 
 
+/* estilo do botão de publicar*/
 .form .input-submit {
     width: 30%;
     height: 50px;
@@ -61,6 +64,8 @@
     transition: .4s ease;
 }
 
+
+/* estilo hover do botão de publicar*/
 .form .input-submit:hover {
     color: #fff;
 
