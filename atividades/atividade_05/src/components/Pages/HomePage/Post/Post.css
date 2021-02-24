@@ -20,8 +20,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-    animation: to-move .15s ease-out;
-
 }
 
 /* estilo das informações do post*/
@@ -196,15 +194,4 @@
 /* estilo do placeholder para o campo de adicionar comentário*/
 .post .comments-container .write-comment .input::placeholder {
     color: rgba(255, 255, 255, 0.6);
-}
-
-/* keyframe pra pulsar o form*/
-@keyframes to-move {
-    from {
-        transform: translate(200px, -500px);
-    }
-    to {
-        transform: translate(0);
-
-    }
 }
