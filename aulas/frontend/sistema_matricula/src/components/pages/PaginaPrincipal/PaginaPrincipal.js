@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Navegador } from "../../commom/navegador/Navegador";
 import { Conteudo } from "./ConteúdoPaginaPrincipal";
 
@@ -12,12 +13,19 @@ function Cabecalho({paginaAtual}) {
     )
 }
 
+function Botão(){
+    const [pressCount, setPressCount] = useState(0);
+
+    return <button onClick={()=> setPressCount(pressCount + 1)}>Fui pressionado {pressCount} vezes </button>
+}
+
 export function PaginaPrincipal() {
     return (
         <div>
             <Cabecalho paginaAtual="página de matricula"></Cabecalho>
             <Navegador></Navegador>
             <Conteudo></Conteudo>
+            <Botão />
         </div>
     )
 }
