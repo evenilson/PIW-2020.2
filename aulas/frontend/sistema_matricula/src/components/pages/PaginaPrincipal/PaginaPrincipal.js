@@ -15,8 +15,17 @@ function Cabecalho({paginaAtual}) {
 
 function Botão(){
     const [pressCount, setPressCount] = useState(0);
+    const [clicado, setClicado] = useState(false);
 
-    return <button onClick={()=> setPressCount(pressCount + 1)}>Fui pressionado {pressCount} vezes </button>
+    function clicouBotao(){
+        setClicado(true)
+        setPressCount(pressCount + 1)
+    }
+
+    let estilo = {}
+    clicado ? estilo['backgroundColor'] = 'green' : estilo['backgroundColor'] = 'blue' 
+
+    return <button onClick={clicouBotao} style={estilo}>Fui pressionado {pressCount} vezes </button>
 }
 
 export function PaginaPrincipal() {
