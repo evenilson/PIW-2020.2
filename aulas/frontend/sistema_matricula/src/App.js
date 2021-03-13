@@ -8,6 +8,7 @@ import { PaginaPrincipal } from './components/pages/PaginaPrincipal/PaginaPrinci
 import { PaginaListarMatriculas } from './components/pages/PaginaListarMatriculas/PaginaListarMatriculas'
 import { PaginaDetalheMatricula } from './components/pages/PaginaDetalheMatricula/PaginaDetalheMatricula';
 import { PaginaDetalheDisciplina } from './components/pages/PaginaDetalheDisciplina/PaginaDetalheDisciplina';
+import { PaginaCadastro } from './components/pages/PaginaCadastro/PaginaCadastro';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         <PaginaListarMatriculas></PaginaListarMatriculas>
       </Route>
       <Route path="/matriculas/:id" component={PaginaDetalheMatricula}></Route>
+      <Route path="/cadastrar/">
+        <PaginaCadastro />
+      </Route>
     </Router>
     
   )
