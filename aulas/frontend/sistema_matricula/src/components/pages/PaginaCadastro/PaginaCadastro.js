@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-
+import axios from 'axios';
 
 import { Cabecalho } from "../../commom/Cabecalho/Cabecalho";
 import { Navegador } from "../../commom/navegador/Navegador";
@@ -8,7 +8,15 @@ function FomularioCadastro(){
     const {register, handleSubmit} = useForm();
 
     function onSubmiter(aluno) {
-        console.log(aluno)
+        axios({
+            method: 'POST',
+            url:"http://localhost:8393/alunos",
+            data: aluno
+        }).then((response) =>{
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        })
     }
 
     return (
