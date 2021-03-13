@@ -1,14 +1,15 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form'
 
 import { Navegador } from "../../commom/navegador/Navegador";
 
 
-function FormularioMatricula(){
+function FormularioMatricula({addMatric}){
 
     const { register, handleSubmit } = useForm();
 
     const onSubmiter = (data) => {
-        console.log(data)
+        addMatric(data)
     }
  
     return(
@@ -25,12 +26,32 @@ function FormularioMatricula(){
     )
 }
 
+function ListarMatriculas({matriculas}) {
+    return (
+        <ul>
+            {    
+                matriculas.map((matricula) => (
+                    <li>{matricula.nome} - {matricula.disciplina}</li>
+                ))
+            }
+        </ul>
+    )
+}
+
 export function PaginaListarMatriculas() {
+
+    const [matriculas, setMatriculas] = useState([])
+
+    function addMatric(matricula) {
+        setMatriculas([...matriculas, matricula])
+    }
+
     return (
         <div>
             <Navegador></Navegador>
-            <h1>Página de Matricula</h1>
-            <FormularioMatricula />
+
+            <ListarMatriculas matriculas={matriculas}/>
+            <FormularioMatricula addMatric={addMatric}/>
         </div>
     )
 }
