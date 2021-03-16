@@ -9,6 +9,7 @@ import { PaginaListarMatriculas } from './components/pages/PaginaListarMatricula
 import { PaginaDetalheMatricula } from './components/pages/PaginaDetalheMatricula/PaginaDetalheMatricula';
 import { PaginaDetalheDisciplina } from './components/pages/PaginaDetalheDisciplina/PaginaDetalheDisciplina';
 import { PaginaCadastro } from './components/pages/PaginaCadastro/PaginaCadastro';
+import { PaginaLogin } from './components/pages/PaginaLogin/PaginaLogin';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/cadastrar/">
         <PaginaCadastro />
       </Route>
+      <Route path="/login" component={PaginaLogin}></Route>
     </Router>
     
   )

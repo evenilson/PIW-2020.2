@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
+import history from '../../../history'
+
 import { Cabecalho } from "../../commom/Cabecalho/Cabecalho";
 import { Navegador } from "../../commom/navegador/Navegador";
 
@@ -14,6 +16,7 @@ function FomularioCadastro(){
             data: aluno
         }).then((response) =>{
             console.log(response)
+            history.push('/login')
         }).catch((error) => {
             console.log(error)
             console.log("deu erro")
