@@ -16,6 +16,7 @@ function FomularioCadastro(){
             console.log(response)
         }).catch((error) => {
             console.log(error)
+            console.log("deu erro")
         })
     }
 
