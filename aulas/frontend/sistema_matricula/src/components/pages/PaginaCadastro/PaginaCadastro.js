@@ -1,20 +1,17 @@
 import { useForm } from "react-hook-form";
-import axios from 'axios';
 
 import history from '../../../history'
 
 import { Cabecalho } from "../../commom/Cabecalho/Cabecalho";
 import { Navegador } from "../../commom/navegador/Navegador";
 
+import { signup } from "../../../api/auth"
+
 function FomularioCadastro(){
     const {register, handleSubmit} = useForm();
 
-    function onSubmiter(aluno) {
-        axios({
-            method: 'POST',
-            url:"http://localhost:8393/alunos",
-            data: aluno
-        }).then((response) =>{
+    function entrar(aluno) {
+        signup(aluno).then((response) =>{
             console.log(response)
             history.push('/login')
         }).catch((error) => {
@@ -24,7 +21,7 @@ function FomularioCadastro(){
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmiter)}>
+        <form onSubmit={handleSubmit(entrar)}>
             Nome: <input type="text" name="nome" ref={register}/> <br />
             Matricula: <input type="text" name="matricula" ref={register}/> <br />
             Senha: <input type="text" name="senha" ref={register}/><br />
