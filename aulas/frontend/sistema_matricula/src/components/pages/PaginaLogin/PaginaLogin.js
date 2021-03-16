@@ -6,6 +6,7 @@ import { Navegador } from "../../commom/navegador/Navegador";
 import { signin } from "../../../api/auth"
 
 import { AuthContext } from '../../../App'
+import history from "../../../history";
 
  
 export function FormularioLogin() {
@@ -15,7 +16,8 @@ export function FormularioLogin() {
 
     function logar(aluno){
         signin(aluno).then((response) =>{
-            console.log(response)
+            auth.setAuth({token: response.data})
+            history.push("/")
         }).catch((error) => {
             console.log(error)
         })

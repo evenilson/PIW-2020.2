@@ -1,5 +1,5 @@
 import { Route, Router } from 'react-router-dom';
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
 import './App.css';
 
@@ -15,8 +15,11 @@ import { PaginaLogin } from './components/pages/PaginaLogin/PaginaLogin';
 export const AuthContext = createContext(null);
 
 function App() {
+
+  const [auth, setAuth] = useState({token: null})
+
   return (
-    <AuthContext.Provider value={{token:"123"}}>
+    <AuthContext.Provider value={{auth: auth, setAuth: setAuth}}>
       <Router history={history}> 
         <Route exact path="/">
           <PaginaPrincipal></PaginaPrincipal>
