@@ -1,4 +1,5 @@
 import { Route, Router } from 'react-router-dom';
+import { createContext } from 'react';
 
 import './App.css';
 
@@ -11,22 +12,26 @@ import { PaginaDetalheDisciplina } from './components/pages/PaginaDetalheDiscipl
 import { PaginaCadastro } from './components/pages/PaginaCadastro/PaginaCadastro';
 import { PaginaLogin } from './components/pages/PaginaLogin/PaginaLogin';
 
+export const AuthContext = createContext(null);
+
 function App() {
   return (
-    <Router history={history}> 
-      <Route exact path="/">
-        <PaginaPrincipal></PaginaPrincipal>
-      </Route>
-      <Route path="/disciplinas/:id" component={PaginaDetalheDisciplina}></Route>
-      <Route exact path="/matriculas">
-        <PaginaListarMatriculas></PaginaListarMatriculas>
-      </Route>
-      <Route path="/matriculas/:id" component={PaginaDetalheMatricula}></Route>
-      <Route path="/cadastrar/">
-        <PaginaCadastro />
-      </Route>
-      <Route path="/login" component={PaginaLogin}></Route>
-    </Router>
+    <AuthContext.Provider value={{token:"123"}}>
+      <Router history={history}> 
+        <Route exact path="/">
+          <PaginaPrincipal></PaginaPrincipal>
+        </Route>
+        <Route path="/disciplinas/:id" component={PaginaDetalheDisciplina}></Route>
+        <Route exact path="/matriculas">
+          <PaginaListarMatriculas></PaginaListarMatriculas>
+        </Route>
+        <Route path="/matriculas/:id" component={PaginaDetalheMatricula}></Route>
+        <Route path="/cadastrar/">
+          <PaginaCadastro />
+        </Route>
+        <Route path="/login" component={PaginaLogin}></Route>
+      </Router>
+    </AuthContext.Provider>
     
   )
 }
