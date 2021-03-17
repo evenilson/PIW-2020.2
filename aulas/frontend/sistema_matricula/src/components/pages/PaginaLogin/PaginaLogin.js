@@ -16,7 +16,7 @@ export function FormularioLogin() {
 
     function logar(aluno){
         signin(aluno).then((response) =>{
-            auth.setAuth({token: response.data})
+            auth.setAuth({token: response.data.token, nome: response.data.nome})
             history.push("/")
         }).catch((error) => {
             console.log(error)
