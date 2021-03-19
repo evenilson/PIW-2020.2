@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { listar } from "../../../api/disciplinasAPI";
+import { AuthContext } from "../../../App";
 import { Cabecalho } from "../../commom/Cabecalho/Cabecalho";
 import { Navegador } from "../../commom/navegador/Navegador";
 import { Conteudo } from "./ConteúdoPaginaPrincipal";
@@ -21,11 +23,27 @@ function Botão(){
 }
 
 export function PaginaPrincipal() {
+    const { auth } = useContext(AuthContext)
+
+    const [disciplinas, setDisciplinas] = useState([]);
+
+    useEffect(()=>{
+        listar(auth.token).then(
+            (response) => {
+                setDisciplinas(response.data)
+            }
+        ).catch(
+            (error => {
+                console.log(error)
+            })
+        )
+    })
+
     return (
         <div>
             <Cabecalho paginaAtual="página de matricula"></Cabecalho>
             <Navegador></Navegador>
-            <Conteudo></Conteudo>
+            <Conteudo disciplinas={disciplinas}></Conteudo>
             <Botão />
         </div>
     )

@@ -18,36 +18,10 @@ function Card({disciplina}) {
     )
 }
 
-export function Conteudo() {
-    let disciplinas = [
-        {
-            id:"123",
-            nome: "LMS",
-            codigo: "QXD256",
-            disponivel: false
-        },
-        {
-            id:"323",
-            nome: "PIW",
-            codigo: "QXD562",
-            disponivel: true
-        },
-        {
-            id:"151",
-            nome: "IHC",
-            codigo: "QXD784",
-            disponivel: false
-        },
-        {
-            id:"312",
-            nome: "SOC",
-            codigo: "QXD754",
-            disponivel: true
-        }
-    ];
+export function Conteudo({disciplinas}) {
 
     const cards = disciplinas.map((disciplina) =>
-        <Card disciplina={disciplina}></Card>
+        <Card key={disciplina.id} disciplina={disciplina}></Card>
     );
 
     return (
