@@ -37,7 +37,7 @@ export function PaginaPrincipal() {
                 console.log(error)
             })
         )
-    },[])
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div>
