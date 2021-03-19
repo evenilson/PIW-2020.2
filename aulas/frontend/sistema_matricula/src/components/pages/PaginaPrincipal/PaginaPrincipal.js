@@ -37,7 +37,7 @@ export function PaginaPrincipal() {
                 console.log(error)
             })
         )
-    })
+    },[])
 
     return (
         <div>
