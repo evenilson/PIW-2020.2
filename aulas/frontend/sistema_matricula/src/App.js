@@ -1,4 +1,4 @@
-import { Route, Router } from 'react-router-dom';
+import { Redirect, Route, Router } from 'react-router-dom';
 import { createContext, useState } from 'react';
 
 import './App.css';
@@ -22,7 +22,7 @@ function App() {
     <AuthContext.Provider value={{auth: auth, setAuth: setAuth}}>
       <Router history={history}> 
         <Route exact path="/">
-          <PaginaPrincipal></PaginaPrincipal>
+          {auth.token == null ? <Redirect to="/login" /> : <PaginaPrincipal />}
         </Route>
         <Route path="/disciplinas/:id" component={PaginaDetalheDisciplina}></Route>
         <Route exact path="/matriculas">
