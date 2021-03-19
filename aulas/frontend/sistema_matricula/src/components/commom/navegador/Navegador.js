@@ -14,7 +14,7 @@ function NavegadorLogado({nome}){
             </div>
             <div>
                 <strong>{nome}</strong>
-                <NavLink className="link-navegador" to="/" onClick={()=>{setAuth({token: null, name: null})}}>Logout</NavLink>
+                <NavLink className="link-navegador" to="/" onClick={()=>{setAuth({token: null, nome: null})}}>Logout</NavLink>
 
             </div>
         </nav>

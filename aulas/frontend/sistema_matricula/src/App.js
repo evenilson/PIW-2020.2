@@ -16,10 +16,16 @@ export const AuthContext = createContext(null);
 
 function App() {
 
-  const [auth, setAuth] = useState({token: null, nome: null})
+  const [auth, setAuth] = useState({token: localStorage.getItem("token"), nome: localStorage.getItem("nome")})
+
+  function setAuthLS(newAuth) {
+    setAuth(newAuth)
+    localStorage.setItem("token", newAuth.token)
+    localStorage.setItem("nome", newAuth.nome)
+  }
 
   return (
-    <AuthContext.Provider value={{auth: auth, setAuth: setAuth}}>
+    <AuthContext.Provider value={{auth: auth, setAuth: setAuthLS}}>
       <Router history={history}> 
         <Route exact path="/">
           {auth.token == null ? <Redirect to="/login" /> : <PaginaPrincipal />}
