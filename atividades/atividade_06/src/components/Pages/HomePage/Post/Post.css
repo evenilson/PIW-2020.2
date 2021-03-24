@@ -1,0 +1,197 @@
+
+/* estilo geral do post*/
+.post {
+    width: 600px;
+
+    background-color: #0f1125;
+    
+    margin: 20px 0;
+
+    border-top: 1.5px solid rgb(30, 124, 201);
+    border-bottom: 1.5px solid rgb(30, 124, 201);
+
+    box-shadow: 0px 0px 5px rgba(30, 124, 201, .7);
+
+    border-radius: 20px 0;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+/* estilo das informações do post*/
+.post .user-infos {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* estilo para o container das imagens dos usuarios de post e comentário*/
+.post .user-infos .user-img,
+.post .comments-container .user-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    border: 2px solid rgb(30, 124, 201);
+    border-radius: 50%;
+}
+
+/* estilo para as imagens dos usuarios de post e comentário*/
+.post .user-infos .user-img img,
+.post .comments-container .user-img img {
+    width: 100%;
+}
+
+/* estilo para o nome do usuario que fez o post*/
+.post .username {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* estilo para o texto que o usuario fez do post*/
+.post .text {
+    text-align: justify;
+    font-size: 1.2rem;
+
+    padding: 15px 0 30px 0;
+}
+
+/* estilo para o container que ficará os likes*/
+.post .likes-container {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 8px 0;
+
+    border-top: 1px solid rgba(30, 124, 201, .2);
+    border-bottom: 1px solid rgba(30, 124, 201, .2);
+}
+
+/* estilo para a informações dos like*/
+.post .likes-container .likes-info {
+
+    color: rgb(30, 124, 201);
+}
+
+/* estilo para o botão de dar like*/
+.post .likes-container .like-btn {
+
+    width: 80px;
+    padding: 5px;
+
+}
+
+/* estilo para o link dentro do botão*/
+.post .likes-container .like-btn a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #e3e4ec;
+
+    transition: .4s ease;
+}
+
+/* estilo :hover para o link dentro do botão*/
+.post .likes-container .like-btn a:hover{
+    color: rgb(30, 124, 201);
+
+    text-shadow: 0px 0px 3px rgba(30, 124, 201, .4);
+}
+
+/* estilo para o container dos comentários*/
+.post .comments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 12px 0px;
+
+}
+
+/* estilo dos comentários*/
+.post .comments-container .comment {
+    display: flex;
+    align-items: flex-start;
+
+    margin-top: 12px;
+
+}
+
+/* estilo para o container as imagens dos comentarios*/
+.post .comments-container .comment .user-img.img-comment,
+.post .comments-container .write-comment .user-img.img-comment{
+    width: 30px;
+    height: 30px;
+}
+
+/* estilo para o container do nome e comentario da pessoa que comentou*/
+.post .comments-container .comment .username-text{
+    background-color: #171a30;
+
+    padding: 8px 12px;
+
+    border-radius: 0px 10px 10px 10px;
+}
+
+/* estilo para o nome de quem cpmentou*/
+.post .comments-container .comment .username-text .username-comment {
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    margin-bottom: 3px;
+}
+
+/* estilo para o texto do comentario*/
+.post .comments-container .comment .username-text .text-comment {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* estilo para o container de adicionar comentário*/
+.post .comments-container .write-comment {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    
+    margin-top: 15px;
+
+    width: 100%;
+}
+
+/* estilo para o campo de adicionar comentário*/
+.post .comments-container .write-comment .input {
+    background-color: #171a30;
+
+    
+    height: 40px;
+    width: 94%;
+
+    color: rgba(255, 255, 255, 0.8);
+    font-size: medium;
+
+    border-radius: 0 10px 10px 10px;
+    border: none;
+
+    padding: 0 20px;
+
+    outline: none;
+
+}
+
+/* estilo do placeholder para o campo de adicionar comentário*/
+.post .comments-container .write-comment .input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
