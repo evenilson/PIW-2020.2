@@ -1,20 +1,11 @@
 
-
-function FormSignUp() {
-    return (
-        <form className="formsignup-container">
-            <input type="text" placeholder="Nome" />
-            <input type="email" placeholder="E-mail" />
-            <input type="password" placeholder="Senha" />
-
-            <button type="submit"> Cadastrar</button>
-        </form>
-    )
-}
+import { Navigator } from '../../commom/Navigator/Navigator'
+import { FormSignUp } from './FormSignUp/FormSignUp'
 
 export function SignUpPage() {
     return (
-        <div className="signuppage-container">
+        <div >
+            <Navigator />
             <FormSignUp />
         </div>
     )
