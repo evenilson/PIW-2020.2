@@ -14,7 +14,7 @@ export function signInAxios(user) {
     return (
         axios({
             method: 'POST',
-            url:"http://localhost:8393/usuarios",
+            url:"http://localhost:8393/usuarios/signin",
             data: user
         })
     )
