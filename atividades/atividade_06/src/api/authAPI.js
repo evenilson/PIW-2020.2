@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function signup(user) {
+export function signUpAxios(user) {
     return (
         axios({
             method: 'POST',
