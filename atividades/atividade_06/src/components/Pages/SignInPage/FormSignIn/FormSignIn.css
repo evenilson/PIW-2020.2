@@ -1,0 +1,72 @@
+.formsignin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 700px;
+    margin: 100px auto;
+
+    animation: increase .15s ease-out;
+}
+
+.formsignin-container input {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+    
+
+    background-color: #171a30;
+
+    border-radius: 30px 0;
+    border: none;
+    outline: none;
+
+    resize: none;
+
+    padding: 30px;
+
+    font-size: 1.3rem;
+    color: #e3e4ec;
+
+    transition: .3s ease;
+
+}
+
+.formsignin-container input::placeholder {
+
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.formsignin-container button{
+    width: 30%;
+    height: 50px;
+
+    color: rgba(255, 255, 255, 0.8);
+    
+    background-color: rgb(30, 124, 201);
+
+    border: none;
+    border-radius: 30px;
+
+    outline: none;
+
+    margin-top: 20px;
+
+    font-size: 1.3rem;
+    
+    cursor: pointer;
+
+    transition: .4s ease;
+}
+
+.formsignin-container button:hover {
+    color: #fff;
+
+    width: 31%;
+    height: 50px;
+}
