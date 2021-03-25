@@ -9,3 +9,13 @@ export function signUpAxios(user) {
         })
     )
 }
+
+export function signInAxios(user) {
+    return (
+        axios({
+            method: 'POST',
+            url:"http://localhost:8393/usuarios",
+            data: user
+        })
+    )
+}
