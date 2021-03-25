@@ -1,4 +1,4 @@
-import { Route, Router } from 'react-router-dom';
+import { Redirect, Route, Router } from 'react-router-dom';
 import { createContext, useState } from 'react';
 
 import history from './history'
@@ -24,7 +24,7 @@ function App() {
     <authContext.Provider value={{auth: auth, setAuth: setAuthLocalStorage}}>
       <Router history={history}>
         <Route exact path="/">
-          <HomePage></HomePage>
+          {auth.token == null ? <Redirect to="/login" /> : <HomePage />}
         </Route>
         <Route path="/post">
           <PostPage></PostPage>
