@@ -7,7 +7,7 @@ const comentarioModel = require("../models/comentarioModel");
 const comentarioView = require("../views/comentarioView");
 
 module.exports.listarPosts = function(req, res){
-    let promise = postModel.find().exec();
+    let promise = postModel.find().populate("id_usuario").exec();
 
     promise.then(function(posts){
         res.status(200).json(postView.renderMany(posts));

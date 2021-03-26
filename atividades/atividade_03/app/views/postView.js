@@ -1,9 +1,11 @@
+const viewUsuario = require("../views/usuarioView")
 
 function render(post){
     return {
         id: post._id,
         texto: post.texto,
-        id_usuario: post.id_usuario
+        id_usuario: post.id_usuario.id,
+        nome_usuario:  post.id_usuario.nome
     }
 }
 
