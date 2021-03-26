@@ -11,3 +11,16 @@ export function getPostsAxios(token) {
         })
     )
 }
+
+export function setPostAxios(token, post) {
+    return (
+        axios({
+            method: "POST",
+            url: "http://localhost:8393/posts",
+            data: post,
+            headers: {
+                "token": token
+            }
+        })
+    )
+}
