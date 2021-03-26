@@ -1,4 +1,3 @@
-const viewUsuario = require("../views/usuarioView")
 
 function render(post){
     return {

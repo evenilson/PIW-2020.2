@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function getPostAxios(token) {
+export function getPostsAxios(token) {
     return(
         axios({
             method: "GET",

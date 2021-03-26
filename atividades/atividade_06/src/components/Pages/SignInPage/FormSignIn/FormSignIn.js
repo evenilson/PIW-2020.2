@@ -15,7 +15,6 @@ export function FormSignIn() {
     function signInFunction(user) {
         signInAxios(user).then((response) => {
             auth.setAuth({token: response.data.token, nome: response.data.nome})
-            console.log(response)
             history.push('/');
         }).catch((error) => {
             console.log(error)
