@@ -77,7 +77,7 @@ export function Post(props) {
                     <div className="user-img img-comment">
                         <img src="https://i.pinimg.com/originals/8b/d3/1d/8bd31d79258cb5e51cd8884986ced870.jpg" alt="Foto do usuario logado" />
                     </div>
-                    <input type="text" autoComplete="off" className="input" name="texto" ref={register} placeholder="Escreva um comentário" />
+                    <input type="text" autoComplete="off" required className="input" name="texto" ref={register} placeholder="Escreva um comentário" />
                 </form>
             </div>
         </div>

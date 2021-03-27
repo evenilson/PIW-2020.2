@@ -19,9 +19,9 @@ export function FormSignUp() {
 
     return (
         <form className="formsignup-container" onSubmit={ handleSubmit(signUpFunction) }>
-            <input type="text" placeholder="Nome" name="nome" ref={register} />
-            <input type="email" placeholder="E-mail" name="email" ref={register} />
-            <input type="password" placeholder="Senha" name="senha" ref={register} />
+            <input type="text" placeholder="Nome" required name="nome" ref={register} />
+            <input type="email" placeholder="E-mail" required name="email" ref={register} />
+            <input type="password" placeholder="Senha" required name="senha" ref={register} />
 
             <button type="submit"> Cadastrar</button>
         </form>

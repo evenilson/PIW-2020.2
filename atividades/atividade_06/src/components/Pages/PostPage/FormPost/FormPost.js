@@ -21,7 +21,7 @@ export function FormPost() {
 
     return (
         <form className="form" onSubmit={handleSubmit(publishPostFunction)}> 
-            <textarea type="text" className="input-text" name="texto" ref={register} placeholder="No que você está pensando? "/>
+            <textarea type="text" required className="input-text" name="texto" ref={register} placeholder="No que você está pensando? "/>
             <input type="submit" className="input-submit" value="Publicar" />
         </form>
     )

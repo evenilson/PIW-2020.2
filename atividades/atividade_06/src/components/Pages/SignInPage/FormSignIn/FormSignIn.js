@@ -23,8 +23,8 @@ export function FormSignIn() {
 
     return (
         <form className="formsignin-container" onSubmit={handleSubmit(signInFunction)}>
-            <input type="email" placeholder="E-mail" name="email" ref={register} />
-            <input type="password" placeholder="Senha" name="senha" ref={register} />
+            <input type="email" placeholder="E-mail" required name="email" ref={register} />
+            <input type="password" placeholder="Senha" required name="senha" ref={register} />
 
             <button type="submit">Entrar</button>
         </form>
