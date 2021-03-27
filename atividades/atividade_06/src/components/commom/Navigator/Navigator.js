@@ -19,7 +19,7 @@ export function Navigator() {
         <nav className="navigator">
             <NavLink exact to="/" className="logo">Social<span>dev</span></NavLink>
 
-            {auth.token === null ?
+            {auth.token === null || auth.token === "null" ?
                 <ul className="nav-items">
                     <ButtonNav nameButton="cadastrar" to="/cadastrar"></ButtonNav>
                     <ButtonNav nameButton="fazer login" to="/login"></ButtonNav>
