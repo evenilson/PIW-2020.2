@@ -20,6 +20,9 @@
     flex-direction: column;
     justify-content: space-between;
 
+    animation: increase .15s ease-out;
+
+
 }
 
 /* estilo das informações do post*/
@@ -194,4 +197,14 @@
 /* estilo do placeholder para o campo de adicionar comentário*/
 .post .comments-container .write-comment .input::placeholder {
     color: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes increase {
+    from {
+        transform: scale(.1);
+    }
+    to {
+        transform: scale(1);
+
+    }
 }

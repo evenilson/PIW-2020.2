@@ -8,6 +8,7 @@
     margin: 100px auto;
 
     animation: increase .15s ease-out;
+    
 }
 
 .formsignin-container input {
@@ -33,6 +34,7 @@
     color: #e3e4ec;
 
     transition: .2s ease;
+
 
 }
 
@@ -78,4 +80,14 @@
 
     width: 31%;
     height: 50px;
+}
+
+@keyframes increase {
+    from {
+        transform: scale(.1);
+    }
+    to {
+        transform: scale(1);
+
+    }
 }

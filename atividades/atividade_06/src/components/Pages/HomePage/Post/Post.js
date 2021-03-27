@@ -68,7 +68,7 @@ export function Post(props) {
             <div className="text">{props.texto}</div>
             <div className="likes-container">
                 <div className="likes-info">{props.qtdLikes} likes</div>
-                <div className="like-btn"><a href="!#"> <AiOutlineLike />Curtir</a></div>
+                <div className="like-btn"><a href="/"> <AiOutlineLike />Curtir</a></div>
             </div>
             <div className="comments-container">
                 {makeComents}

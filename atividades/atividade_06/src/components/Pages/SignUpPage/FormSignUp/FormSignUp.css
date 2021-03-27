@@ -80,3 +80,14 @@
     width: 31%;
     height: 50px;
 }
+
+
+@keyframes increase {
+    from {
+        transform: scale(.1);
+    }
+    to {
+        transform: scale(1);
+
+    }
+}
