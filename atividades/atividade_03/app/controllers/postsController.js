@@ -72,7 +72,7 @@ module.exports.removerPost= function(req, res){
 module.exports.obterComentarios = function(req, res){
     let id = req.params.id;
 
-    let promise = comentarioModel.find({id_post: id}).exec();
+    let promise = comentarioModel.find({id_post: id}).populate("id_usuario").exec();
     promise.then(function(comentarios){
         res.status(200).json(comentarioView.renderMany(comentarios))
     }).catch(function(error){
