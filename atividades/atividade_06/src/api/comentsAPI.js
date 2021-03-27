@@ -1,11 +1,14 @@
 import axios from 'axios';
 
-function setComentAxios(token, coment) {
+export function setComentAxios(token, coment, idPost) {
     return (
         axios({
             method:"POST",
             url:"http://localhost:8393/comentarios",
-            data: coment,
+            data: {
+                texto: coment.texto,
+                id_post: idPost
+            },
             headers: {
                 "token": token
             }
