@@ -26,7 +26,7 @@ function Coment(props) {
 
 export function Post(props) {
     const [coments, setComents] = useState([])
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, reset } = useForm()
 
 
     const { auth } = useContext(authContext)
@@ -41,12 +41,13 @@ export function Post(props) {
     }
 
     useEffect(() => {
-        getComentsFunction();
-    }, [])
+        getComentsFunction(); // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []) 
 
     function setComentFunction(coment) {
         setComentAxios(auth.token, coment, props.id).then((response) => {
             getComentsFunction();
+            reset();
         }).catch((error) => {
             console.log(error)
         })
@@ -76,7 +77,7 @@ export function Post(props) {
                     <div className="user-img img-comment">
                         <img src="https://i.pinimg.com/originals/8b/d3/1d/8bd31d79258cb5e51cd8884986ced870.jpg" alt="Foto do usuario logado" />
                     </div>
-                    <input type="text" className="input" name="texto" ref={register} placeholder="Escreva um comentário" />
+                    <input type="text" autoComplete="off" className="input" name="texto" ref={register} placeholder="Escreva um comentário" />
                 </form>
             </div>
         </div>
