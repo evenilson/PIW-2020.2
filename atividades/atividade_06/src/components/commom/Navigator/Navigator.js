@@ -36,7 +36,7 @@ export function Navigator() {
                     <li className="user-infos">
                         <strong className="user-name">{auth.nome}</strong>
                         <div className="user-img">
-                            <img src="https://i.pinimg.com/originals/8b/d3/1d/8bd31d79258cb5e51cd8884986ced870.jpg" alt="Foto do usuario logado" />
+                            <img src="https://e7.pngegg.com/pngimages/527/663/png-clipart-logo-person-user-person-icon-rectangle-photography.png" alt="Foto do usuario logado" />
                         </div>
                     </li>
                 </ul>
