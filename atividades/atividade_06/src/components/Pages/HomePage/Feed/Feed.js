@@ -21,7 +21,7 @@ export function Feed () {
     }, [])
 
     const postsMake = posts.map((post) =>
-        <Post key={post.id} username={post.nome_usuario} texto={post.texto} qtdLikes={0}></Post>
+        <Post key={post.id} username={post.nome_usuario} id={post.id} texto={post.texto} qtdLikes={0}></Post>
     );
 
     return (

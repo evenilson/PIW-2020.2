@@ -1,14 +1,48 @@
+import { useContext, useEffect, useState } from 'react';
 import { AiOutlineLike } from 'react-icons/ai';
+import { getPostComents } from '../../../../api/postAPI';
+import { authContext } from '../../../../App';
 
 import './Post.css'
 
+function Coment(props) {
+    return (
+        <div className="comment">
+            <div className="user-img img-comment">
+                <img src="https://e7.pngegg.com/pngimages/527/663/png-clipart-logo-person-user-person-icon-rectangle-photography.png" alt="Foto do usuario" />
+            </div>
+            <div className="username-text">
+                <div className="username-comment">{props.name}</div>
+                <div className="text-comment">{props.text}</div>
+            </div>
+        </div>
+    )
+}
 
-export function Post (props) {
+
+export function Post(props) {
+    const [coments, setComents] = useState([])
+
+    const { auth } = useContext(authContext)
+
+    useEffect(()=>{
+        getPostComents(auth.token, props.id).then((response) => {
+            setComents(response.data)
+        }).catch((error) => {
+            console.log(error);
+        })
+    },[])
+
+
+    const makeComents = coments.map((coment) => 
+        <Coment key={coment.id} text={coment.texto} name={coment.nome_usuario} />
+    );
+
     return (
         <div className="post">
             <div className="user-infos">
                 <div className="user-img">
-                    <img src="https://e7.pngegg.com/pngimages/527/663/png-clipart-logo-person-user-person-icon-rectangle-photography.png" alt="Foto do usuario"/>
+                    <img src="https://e7.pngegg.com/pngimages/527/663/png-clipart-logo-person-user-person-icon-rectangle-photography.png" alt="Foto do usuario" />
                 </div>
                 <div className="username">{props.username} </div>
             </div>
@@ -18,31 +52,14 @@ export function Post (props) {
                 <div className="like-btn"><a href="!#"> <AiOutlineLike />Curtir</a></div>
             </div>
             <div className="comments-container">
-                <div className="comment">
-                    <div className="user-img img-comment">
-                        <img src="https://e7.pngegg.com/pngimages/527/663/png-clipart-logo-person-user-person-icon-rectangle-photography.png" alt="Foto do usuario"/>
-                    </div>
-                    <div className="username-text">
-                        <div className="username-comment">João</div>
-                        <div className="text-comment">Concordo</div>
-                    </div>
-                </div>
-                <div className="comment">
-                    <div className="user-img img-comment">
-                        <img src="https://e7.pngegg.com/pngimages/527/663/png-clipart-logo-person-user-person-icon-rectangle-photography.png" alt="Foto do usuario"/>
-                    </div>
-                    <div className="username-text">
-                        <div className="username-comment">Antonieta</div>
-                        <div className="text-comment">Concordo, porem acho arriscado vossa magestade</div>
-                    </div>
-                </div>
+                {makeComents}
 
-                <div className="write-comment">
+                <form className="write-comment">
                     <div className="user-img img-comment">
-                    <img src="https://i.pinimg.com/originals/8b/d3/1d/8bd31d79258cb5e51cd8884986ced870.jpg" alt="Foto do usuario logado"/>
+                        <img src="https://i.pinimg.com/originals/8b/d3/1d/8bd31d79258cb5e51cd8884986ced870.jpg" alt="Foto do usuario logado" />
                     </div>
-                    <input className="input" placeholder="Escreva um comentário"/>
-                </div>
+                    <input className="input" placeholder="Escreva um comentário" />
+                </form>
             </div>
         </div>
     )
