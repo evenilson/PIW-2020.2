@@ -24,7 +24,7 @@ function App() {
     <authContext.Provider value={{auth: auth, setAuth: setAuthLocalStorage}}>
       <Router history={history}>
         <Route exact path="/">
-          {auth.token == null ? <Redirect to="/login" /> : <HomePage />}
+          {auth.token == null || auth.token === "null"? <Redirect to="/login" /> : <HomePage />}
         </Route>
         <Route path="/post">
           <PostPage></PostPage>
