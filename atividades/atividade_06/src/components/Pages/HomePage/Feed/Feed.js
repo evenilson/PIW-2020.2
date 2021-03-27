@@ -12,12 +12,16 @@ export function Feed () {
     const { auth } = useContext( authContext );
 
 
-    useEffect(() => {
+    function getPostsFunction(){
         getPostsAxios(auth.token).then((response) => {
             setPosts(response.data);
         }).catch((error) => {
             console.log(error);
         })
+    }
+
+    useEffect(() => {
+        getPostsFunction(); // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const postsMake = posts.map((post) =>
