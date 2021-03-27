@@ -12,6 +12,18 @@ export function getPostsAxios(token) {
     )
 }
 
+export function getPostComents(token, idPost){
+    return(
+        axios({
+            method: "GET",
+            url: "http://localhost:8393/posts/"+idPost+"/comentarios",
+            headers: {
+                "token": token
+            }
+        })
+    )
+}
+
 export function setPostAxios(token, post) {
     return (
         axios({
